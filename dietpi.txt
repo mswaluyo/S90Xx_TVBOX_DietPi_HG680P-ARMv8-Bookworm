@@ -1,0 +1,74 @@
+#------------------------------------------------------------------------------------------------------
+##### DietPi-Automation settings, applied on first boot of DietPi only, ONCE! #####
+#------------------------------------------------------------------------------------------------------
+# Password login otomatis (User: root | Pass: dietpi)
+AUTO_SETUP_GLOBAL_PASSWORD=dietpi
+
+##### Language/Regional options #####
+AUTO_SETUP_LOCALE=en_US.UTF-8
+AUTO_SETUP_KEYBOARD_LAYOUT=us
+AUTO_SETUP_TIMEZONE=Asia/Jakarta
+
+##### Network options #####
+AUTO_SETUP_NET_ETHERNET_ENABLED=1
+AUTO_SETUP_NET_WIFI_ENABLED=0
+AUTO_SETUP_NET_WIFI_COUNTRY_CODE=ID
+
+# Menggunakan IP Statis agar tidak berubah-ubah saat diakses dari laptop
+AUTO_SETUP_NET_USESTATIC=1
+AUTO_SETUP_NET_STATIC_IP=192.168.12.14
+AUTO_SETUP_NET_STATIC_MASK=255.255.255.0
+AUTO_SETUP_NET_STATIC_GATEWAY=192.168.12.1
+AUTO_SETUP_NET_STATIC_DNS=8.8.8.8 1.1.1.1
+
+# Hostname (Nama STB di jaringan)
+AUTO_SETUP_NET_HOSTNAME=Pamsimas-Server
+
+# Tunggu jaringan stabil sebelum lanjut boot
+AUTO_SETUP_BOOT_WAIT_FOR_NETWORK=1
+
+##### Misc options #####
+# Membuat swap file 1GB di eMMC/SSD agar RAM tidak sesak
+AUTO_SETUP_SWAPFILE_SIZE=1024
+AUTO_SETUP_SWAPFILE_LOCATION=/var/swap
+
+# Headless mode (0 = tetap aktifkan output HDMI agar bisa monitor di TV)
+AUTO_SETUP_HEADLESS=0
+CONFIG_SERIAL_CONSOLE_ENABLE=1
+
+# Setuju otomatis pada lisensi agar tidak berhenti di tengah jalan
+AUTO_SETUP_ACCEPT_LICENSE=1
+
+##### Software options #####
+# Menggunakan SSH Server Dropbear (paling ringan untuk STB)
+AUTO_SETUP_SSH_SERVER_INDEX=-1
+
+# Logging mode (RAMlog untuk menghemat umur eMMC/SSD)
+AUTO_SETUP_LOGGING_INDEX=-1
+AUTO_SETUP_RAMLOG_MAXSIZE=50
+
+# Preferensi Server Web (Nginx paling disarankan untuk Pamsimas)
+AUTO_SETUP_WEB_SERVER_INDEX=-1
+
+##### Non-interactive first run setup #####
+# Jika diset 1, dia akan install otomatis. Diset 0 dulu agar Abang bisa cek manual.
+AUTO_SETUP_AUTOMATED=0
+
+#------------------------------------------------------------------------------------------------------
+##### DietPi-Config settings #####
+#------------------------------------------------------------------------------------------------------
+# Mengatur CPU agar kencang saat dibutuhkan dan dingin saat idle
+CONFIG_CPU_GOVERNOR=schedutil
+CONFIG_CHECK_DIETPI_UPDATES=1
+CONFIG_CHECK_APT_UPDATES=1
+CONFIG_NTP_MODE=2
+
+# Mirror server (menggunakan global mirror agar stabil)
+CONFIG_APT_DEBIAN_MIRROR=https://deb.debian.org/debian
+CONFIG_NTP_MIRROR=default
+
+#------------------------------------------------------------------------------------------------------
+##### DietPi-Software settings #####
+#------------------------------------------------------------------------------------------------------
+SOFTWARE_DISABLE_SSH_PASSWORD_LOGINS=0
+SOFTWARE_URBACKUP_BACKUPPATH=/mnt/dietpi_userdata/urbackup

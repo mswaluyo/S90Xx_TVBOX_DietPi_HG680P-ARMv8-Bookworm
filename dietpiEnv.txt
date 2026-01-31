@@ -1,0 +1,20 @@
+# --- DietPi Env for HG680P (S905X) ---
+rootdev=UUID=33d55916-4df0-48a1-ab42-a9c8e8d5cdf6
+rootfstype=ext4
+
+# Jalur DTB Sakti untuk HG680P
+fdtfile=/dtb/amlogic/meson-gxl-s905x-p212.dtb
+
+# Konfigurasi Console (Penting agar tampilan muncul di HDMI)
+consoleargs=console=ttyAML0,115200 console=tty1
+
+# Argumen tambahan agar sistem lebih stabil dan tidak gampang check disk (fsck)
+extraargs=fsck.repair=yes net.ifnames=0 dwc_otg.lpm_enable=0 rootwait
+
+# Optimasi untuk TV Box
+docker_optimizations=off
+overlay_path=amlogic
+overlay_prefix=meson
+overlays=
+user_overlays=
+# --- End of Config ---
